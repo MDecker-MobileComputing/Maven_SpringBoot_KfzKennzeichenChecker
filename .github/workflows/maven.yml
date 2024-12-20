@@ -24,6 +24,6 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: KfzKennzeichenChecker-FatJar
-        path: target/sla-*.jar
+        path: target/kennzeichenchecker-*.jar
         if-no-files-found: error # Default-Wert ist (nur) "warn"; es gibt auch noch "ignore"
         retention-days: 3
