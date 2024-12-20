@@ -53,7 +53,7 @@ public class KfzKennzeichenChecker {
         
         String kfzKennzeichenNormal = kfzKennzeichen.trim().toUpperCase();
         
-        String[] komponentenArray = kfzKennzeichen.split( " " );                        
+        String[] komponentenArray = kfzKennzeichenNormal.split( " " );                        
         kfzKennzeichenNormal = joinKomponenten( komponentenArray );
         
         if ( komponentenArray.length != 3 ) {

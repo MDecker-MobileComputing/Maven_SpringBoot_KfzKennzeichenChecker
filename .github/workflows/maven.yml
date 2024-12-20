@@ -16,6 +16,8 @@ jobs:
         java-version: '23'
         distribution: 'temurin'
         cache: maven
+    - name: Execution-Bit für Maven-Wrapper-Skript setzen
+      run: chmod u+x mvnw
     - name: FatJar-Datei mit Maven bauen
       run: ./mvnw --batch-mode clean package
     - name: FatJar-Datei veröffentlichen
