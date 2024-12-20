@@ -37,9 +37,9 @@ public class KennzeichenCheckRestController {
     /**
      * REST-Endpunkt für Überprüfung eines KFZ-Kennzeichens.
      * 
-     * @param kfzKennzeichen URL-Parameter für KFZ-Kennzeichen, das überprüft werden soll
+     * @param kennzeichen URL-Parameter für KFZ-Kennzeichen, das überprüft werden soll
      * 
-     * @return Antwort für HTTP-Request
+     * @return Antwort für HTTP-Request; HTTP-Status-Code ist immer OK
      */
     @GetMapping( "/check" )
     public ResponseEntity<CheckErgebnis> getAnzahl( @RequestParam String kennzeichen ) {

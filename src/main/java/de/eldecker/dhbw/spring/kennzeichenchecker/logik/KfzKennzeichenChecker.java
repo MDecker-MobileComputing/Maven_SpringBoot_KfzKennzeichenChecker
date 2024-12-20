@@ -10,6 +10,14 @@ import de.eldecker.dhbw.spring.kennzeichenchecker.model.CheckErgebnis;
 
 /**
  * Bean-Klasse mit Logik für Check von KFZ-Kennzeichen.
+ * <br><br>
+ * 
+ * KFZ-Kennzeichen besteht aus:
+ * <ul>
+ * <li>Unterscheidungszeichen: ein bis drei Buchstaben</li>
+ * <li>Erkennungszeichen: ein oder zwei Buchstaben gefolgt von einer bis zu vierstelligen Zahl</li> 
+ * </ul>
+ * Insgesamt dürfen es aber nur bis zu 8 Zeichen sein.
  */
 @Service
 public class KfzKennzeichenChecker {
@@ -65,7 +73,7 @@ public class KfzKennzeichenChecker {
             
             return new CheckErgebnis( kfzKennzeichenNormal, 
                                       false, 
-                                      "Unterscheidungszeichen besteht nicht aus ein bis drei Buchstaben" );
+                                      "Die erste Komponente besteht nicht aus ein bis drei Buchstaben" );
         }
         
         // TODO: Check gegen Microservice
@@ -75,7 +83,7 @@ public class KfzKennzeichenChecker {
             
             return new CheckErgebnis( kfzKennzeichenNormal, 
                                       false, 
-                                      "Zweite Komponente KFZ-Kennzeichen besteht nicht aus ein oder zwei Buchstaben" );            
+                                      "Die zweite Komponente KFZ-Kennzeichen besteht nicht aus ein oder zwei Buchstaben" );            
         }
         
         // Check Komponente 3 (Zahl von Erkennungsnummer)
@@ -83,7 +91,15 @@ public class KfzKennzeichenChecker {
 
             return new CheckErgebnis( kfzKennzeichenNormal, 
                                       false, 
-                                      "Dritte Komponente KFZ-Kennzeichen besteht nicht aus ein bis vier Ziffern" );                        
+                                      "Die dritte Komponente KFZ-Kennzeichen besteht nicht aus ein bis vier Ziffern" );                        
+        }
+        
+        int summeZeichen = unterscheidungszeichen.length() + erkennungsnummerBuchstaben.length() + erkennungsnummerZahlen.length();
+        if ( summeZeichen > 8 ) {
+
+            return new CheckErgebnis( kfzKennzeichenNormal, 
+                                      false, 
+                                      "KFZ-Kennzeichen hat mehr als 8 Zeichen/Ziffern" );                                    
         }
         
         // alle Checks bestanden, also KFZ-Kennzeichen okay
