@@ -1,0 +1,27 @@
+name: FatJar bauen
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  job-fatjar:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Git-Repo auschecken
+      uses: actions/checkout@v4
+    - name: JDK einrichten
+      uses: actions/setup-java@v4
+      with:
+        java-version: '23'
+        distribution: 'temurin'
+        cache: maven
+    - name: FatJar-Datei mit Maven bauen
+      run: ./mvnw --batch-mode clean package
+    - name: FatJar-Datei veröffentlichen
+      uses: actions/upload-artifact@v4
+      with:
+        name: KfzKennzeichenChecker-FatJar
+        path: target/sla-*.jar
+        if-no-files-found: error # Default-Wert ist (nur) "warn"; es gibt auch noch "ignore"
+        retention-days: 3
