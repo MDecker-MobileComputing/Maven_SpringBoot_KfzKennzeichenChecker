@@ -15,5 +15,5 @@ package de.eldecker.dhbw.spring.kennzeichenchecker.model;
  */
 public record CheckErgebnis( String kfzKennzeichen,
                              boolean istOkay,
-                             String fehlermeldung) {
+                             String fehlermeldung ) {
 }

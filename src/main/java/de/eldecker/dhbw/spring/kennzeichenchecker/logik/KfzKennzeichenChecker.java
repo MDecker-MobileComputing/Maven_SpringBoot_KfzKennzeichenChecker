@@ -3,8 +3,6 @@ package de.eldecker.dhbw.spring.kennzeichenchecker.logik;
 
 import java.util.regex.Pattern;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import de.eldecker.dhbw.spring.kennzeichenchecker.model.CheckErgebnis;
@@ -25,8 +23,6 @@ import de.eldecker.dhbw.spring.kennzeichenchecker.rest.UnterscheidungszeichenRes
  */
 @Service
 public class KfzKennzeichenChecker {
-
-	private static final Logger LOG = LoggerFactory.getLogger( KfzKennzeichenChecker.class );
 	
     /**
      * Regulärer Ausdruck für Überprüfung von erster Komponente KFZ-Kennzeichen
