@@ -1,11 +1,16 @@
 package de.eldecker.dhbw.spring.kennzeichenchecker.logik;
 
 
+import java.util.Optional;
 import java.util.regex.Pattern;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import de.eldecker.dhbw.spring.kennzeichenchecker.model.CheckErgebnis;
+import de.eldecker.dhbw.spring.kennzeichenchecker.model.extern.RestErgebnisRecord;
+import de.eldecker.dhbw.spring.kennzeichenchecker.rest.UnterscheidungszeichenRestClient;
 
 
 /**
@@ -22,6 +27,8 @@ import de.eldecker.dhbw.spring.kennzeichenchecker.model.CheckErgebnis;
 @Service
 public class KfzKennzeichenChecker {
 
+	private static final Logger LOG = LoggerFactory.getLogger( KfzKennzeichenChecker.class );
+	
     /**
      * Regulärer Ausdruck für Überprüfung von erster Komponente KFZ-Kennzeichen
      * (Unterscheidungszeichen): besteht sie aus ein bis drei Großbuchstaben?
@@ -40,6 +47,20 @@ public class KfzKennzeichenChecker {
      */
     private static final Pattern REGEXP_3 = Pattern.compile( "^[0-9][0-9]{0,3}$" );    
 
+    /**
+     * REST-Client für Abfrage Unterscheidungszeichen bei anderem Microservice.
+     */
+    private UnterscheidungszeichenRestClient _restClient;
+    
+    
+    /**
+     * Konstruktor für Dependency Injection.
+     */
+    public KfzKennzeichenChecker( UnterscheidungszeichenRestClient restClient ) {
+    	
+    	_restClient = restClient;
+    }
+    
     
     /**
      * Methode zum eigentlichen Überprüfen von KFZ-Kennzeichen.
@@ -75,8 +96,7 @@ public class KfzKennzeichenChecker {
                                       false, 
                                       "Die erste Komponente besteht nicht aus ein bis drei Buchstaben" );
         }
-        
-        // TODO: Check gegen Microservice
+
         
         // Check Komponente 2 (Buchstaben von Erkennungsnummer)
         if ( REGEXP_2.matcher( erkennungsnummerBuchstaben ).matches() == false ) {
@@ -100,6 +120,25 @@ public class KfzKennzeichenChecker {
             return new CheckErgebnis( kfzKennzeichenNormal, 
                                       false, 
                                       "KFZ-Kennzeichen hat mehr als 8 Zeichen/Ziffern" );                                    
+        }
+        
+        // die letzte Überprüfung braucht einen REST-Call, ist also die teuerste und
+        // wird deshalb erst ganz am Schluss gemacht
+        Optional<RestErgebnisRecord> restAntwortOptional = _restClient.holeUnterscheidungszeichen( unterscheidungszeichen );
+        if ( restAntwortOptional.isEmpty() ) {
+        	
+        	LOG.warn( "REST-Service für Unterscheidungszeichenabfrage nicht verfügbar, überspringe Test." );
+        	
+        } else {
+        	
+        	RestErgebnisRecord restAntwort = restAntwortOptional.get(); 
+        	if ( restAntwort.erfolgreich() == false ) {
+        		
+        		String fehlermeldungUnterscheidungszeichen = restAntwort.fehlermeldung();
+                return new CheckErgebnis( kfzKennzeichenNormal, 
+                                          false, 
+                                          fehlermeldungUnterscheidungszeichen );    
+        	}
         }
         
         // alle Checks bestanden, also KFZ-Kennzeichen okay

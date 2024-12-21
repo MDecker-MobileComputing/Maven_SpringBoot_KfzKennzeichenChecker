@@ -2,7 +2,8 @@ package de.eldecker.dhbw.spring.kennzeichenchecker.model;
 
 
 /**
- * Record-Klasse für REST-Response.
+ * Record-Klasse für REST-Response des in dieser Anwendung implementierten
+ * REST-Endpunkts.
  * 
  * @param kfzKennzeichen KFZ-Kennzeichen, das überprüft wurde, normiert
  * 

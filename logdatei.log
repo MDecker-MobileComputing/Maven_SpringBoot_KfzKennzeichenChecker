@@ -1,0 +1,134 @@
+2024-12-21T12:50:17.627+01:00  INFO 8260 --- [KFZ-Kennzeichenchecker] [main] e.d.s.k.KfzKennzeichencheckerApplication : Starting KfzKennzeichencheckerApplication using Java 23 with PID 8260 (E:\AlleMeineGitRepos\GitHub3_Maven_SpringBoot_KfzKennzeichenChecker\target\classes started by sde in E:\AlleMeineGitRepos\GitHub3_Maven_SpringBoot_KfzKennzeichenChecker)
+2024-12-21T12:50:17.640+01:00  INFO 8260 --- [KFZ-Kennzeichenchecker] [main] e.d.s.k.KfzKennzeichencheckerApplication : No active profile set, falling back to 1 default profile: "default"
+2024-12-21T12:50:29.556+01:00  INFO 8260 --- [KFZ-Kennzeichenchecker] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 7000 (http)
+2024-12-21T12:50:29.811+01:00  INFO 8260 --- [KFZ-Kennzeichenchecker] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-21T12:50:29.812+01:00  INFO 8260 --- [KFZ-Kennzeichenchecker] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
+2024-12-21T12:50:30.454+01:00  INFO 8260 --- [KFZ-Kennzeichenchecker] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-21T12:50:30.459+01:00  INFO 8260 --- [KFZ-Kennzeichenchecker] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 11860 ms
+2024-12-21T12:50:32.100+01:00  WARN 8260 --- [KFZ-Kennzeichenchecker] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'kfzKennzeichenChecker': Lookup method resolution failed
+2024-12-21T12:50:32.118+01:00  INFO 8260 --- [KFZ-Kennzeichenchecker] [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-12-21T12:50:32.205+01:00  INFO 8260 --- [KFZ-Kennzeichenchecker] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-12-21T12:50:32.425+01:00 ERROR 8260 --- [KFZ-Kennzeichenchecker] [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'kfzKennzeichenChecker': Lookup method resolution failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.checkLookupMethods(AutowiredAnnotationBeanPostProcessor.java:498) ~[spring-beans-6.2.1.jar:6.2.1]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:368) ~[spring-beans-6.2.1.jar:6.2.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineConstructorsFromBeanPostProcessors(AbstractAutowireCapableBeanFactory.java:1316) ~[spring-beans-6.2.1.jar:6.2.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1211) ~[spring-beans-6.2.1.jar:6.2.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:563) ~[spring-beans-6.2.1.jar:6.2.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523) ~[spring-beans-6.2.1.jar:6.2.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336) ~[spring-beans-6.2.1.jar:6.2.1]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:289) ~[spring-beans-6.2.1.jar:6.2.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334) ~[spring-beans-6.2.1.jar:6.2.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-6.2.1.jar:6.2.1]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1122) ~[spring-beans-6.2.1.jar:6.2.1]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1093) ~[spring-beans-6.2.1.jar:6.2.1]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1030) ~[spring-beans-6.2.1.jar:6.2.1]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:987) ~[spring-context-6.2.1.jar:6.2.1]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.1.jar:6.2.1]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.4.1.jar:3.4.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.4.1.jar:3.4.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.4.1.jar:3.4.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.4.1.jar:3.4.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.4.1.jar:3.4.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.4.1.jar:3.4.1]
+	at de.eldecker.dhbw.spring.kennzeichenchecker.KfzKennzeichencheckerApplication.main(KfzKennzeichencheckerApplication.java:15) ~[classes/:na]
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [de.eldecker.dhbw.spring.kennzeichenchecker.logik.KfzKennzeichenChecker] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@5a07e868]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:483) ~[spring-core-6.2.1.jar:6.2.1]
+	at org.springframework.util.ReflectionUtils.doWithLocalMethods(ReflectionUtils.java:320) ~[spring-core-6.2.1.jar:6.2.1]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.checkLookupMethods(AutowiredAnnotationBeanPostProcessor.java:476) ~[spring-beans-6.2.1.jar:6.2.1]
+	... 21 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: de/eldecker/dhbw/spring/kennzeichenchecker/model/CheckErgebnis
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3650) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2735) ~[na:na]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:465) ~[spring-core-6.2.1.jar:6.2.1]
+	... 23 common frames omitted
+Caused by: java.lang.ClassNotFoundException: de.eldecker.dhbw.spring.kennzeichenchecker.model.CheckErgebnis
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:528) ~[na:na]
+	... 27 common frames omitted
+
+2024-12-21T12:51:25.743+01:00  INFO 7944 --- [KFZ-Kennzeichenchecker] [main] e.d.s.k.KfzKennzeichencheckerApplication : Starting KfzKennzeichencheckerApplication using Java 23 with PID 7944 (E:\AlleMeineGitRepos\GitHub3_Maven_SpringBoot_KfzKennzeichenChecker\target\classes started by sde in E:\AlleMeineGitRepos\GitHub3_Maven_SpringBoot_KfzKennzeichenChecker)
+2024-12-21T12:51:25.754+01:00  INFO 7944 --- [KFZ-Kennzeichenchecker] [main] e.d.s.k.KfzKennzeichencheckerApplication : No active profile set, falling back to 1 default profile: "default"
+2024-12-21T12:51:29.102+01:00  INFO 7944 --- [KFZ-Kennzeichenchecker] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 7000 (http)
+2024-12-21T12:51:29.151+01:00  INFO 7944 --- [KFZ-Kennzeichenchecker] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-21T12:51:29.152+01:00  INFO 7944 --- [KFZ-Kennzeichenchecker] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
+2024-12-21T12:51:29.312+01:00  INFO 7944 --- [KFZ-Kennzeichenchecker] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-21T12:51:29.313+01:00  INFO 7944 --- [KFZ-Kennzeichenchecker] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3362 ms
+2024-12-21T12:51:30.610+01:00  INFO 7944 --- [KFZ-Kennzeichenchecker] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-12-21T12:51:30.666+01:00  INFO 7944 --- [KFZ-Kennzeichenchecker] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2024-12-21T12:51:31.464+01:00  INFO 7944 --- [KFZ-Kennzeichenchecker] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 7000 (http) with context path '/'
+2024-12-21T12:51:31.510+01:00  INFO 7944 --- [KFZ-Kennzeichenchecker] [main] e.d.s.k.KfzKennzeichencheckerApplication : Started KfzKennzeichencheckerApplication in 7.357 seconds (process running for 8.351)
+2024-12-21T12:51:51.815+01:00  INFO 2456 --- [KFZ-Kennzeichenchecker] [main] e.d.s.k.KfzKennzeichencheckerApplication : Starting KfzKennzeichencheckerApplication using Java 23 with PID 2456 (E:\AlleMeineGitRepos\GitHub3_Maven_SpringBoot_KfzKennzeichenChecker\target\classes started by sde in E:\AlleMeineGitRepos\GitHub3_Maven_SpringBoot_KfzKennzeichenChecker)
+2024-12-21T12:51:51.832+01:00  INFO 2456 --- [KFZ-Kennzeichenchecker] [main] e.d.s.k.KfzKennzeichencheckerApplication : No active profile set, falling back to 1 default profile: "default"
+2024-12-21T12:51:56.184+01:00  INFO 2456 --- [KFZ-Kennzeichenchecker] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 7000 (http)
+2024-12-21T12:51:56.248+01:00  INFO 2456 --- [KFZ-Kennzeichenchecker] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-21T12:51:56.249+01:00  INFO 2456 --- [KFZ-Kennzeichenchecker] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
+2024-12-21T12:51:56.433+01:00  INFO 2456 --- [KFZ-Kennzeichenchecker] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-21T12:51:56.434+01:00  INFO 2456 --- [KFZ-Kennzeichenchecker] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4313 ms
+2024-12-21T12:51:58.013+01:00  INFO 2456 --- [KFZ-Kennzeichenchecker] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-12-21T12:51:58.094+01:00  INFO 2456 --- [KFZ-Kennzeichenchecker] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2024-12-21T12:51:59.073+01:00  INFO 2456 --- [KFZ-Kennzeichenchecker] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 7000 (http) with context path '/'
+2024-12-21T12:51:59.135+01:00  INFO 2456 --- [KFZ-Kennzeichenchecker] [main] e.d.s.k.KfzKennzeichencheckerApplication : Started KfzKennzeichencheckerApplication in 9.229 seconds (process running for 10.999)
+2024-12-21T12:52:07.898+01:00  INFO 2456 --- [KFZ-Kennzeichenchecker] [http-nio-7000-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-21T12:52:07.900+01:00  INFO 2456 --- [KFZ-Kennzeichenchecker] [http-nio-7000-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-12-21T12:52:07.909+01:00  INFO 2456 --- [KFZ-Kennzeichenchecker] [http-nio-7000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2024-12-21T12:52:08.073+01:00  INFO 2456 --- [KFZ-Kennzeichenchecker] [http-nio-7000-exec-2] d.s.k.r.UnterscheidungszeichenRestClient : Pfad für REST-Request: v1/suche/HH
+2024-12-21T12:53:00.857+01:00  INFO 264 --- [KFZ-Kennzeichenchecker] [main] e.d.s.k.KfzKennzeichencheckerApplication : Starting KfzKennzeichencheckerApplication using Java 23 with PID 264 (E:\AlleMeineGitRepos\GitHub3_Maven_SpringBoot_KfzKennzeichenChecker\target\classes started by sde in E:\AlleMeineGitRepos\GitHub3_Maven_SpringBoot_KfzKennzeichenChecker)
+2024-12-21T12:53:00.872+01:00  INFO 264 --- [KFZ-Kennzeichenchecker] [main] e.d.s.k.KfzKennzeichencheckerApplication : No active profile set, falling back to 1 default profile: "default"
+2024-12-21T12:53:04.711+01:00  INFO 264 --- [KFZ-Kennzeichenchecker] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 7000 (http)
+2024-12-21T12:53:04.753+01:00  INFO 264 --- [KFZ-Kennzeichenchecker] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-21T12:53:04.754+01:00  INFO 264 --- [KFZ-Kennzeichenchecker] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
+2024-12-21T12:53:04.909+01:00  INFO 264 --- [KFZ-Kennzeichenchecker] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-21T12:53:04.911+01:00  INFO 264 --- [KFZ-Kennzeichenchecker] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3737 ms
+2024-12-21T12:53:06.237+01:00  INFO 264 --- [KFZ-Kennzeichenchecker] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-12-21T12:53:06.293+01:00  INFO 264 --- [KFZ-Kennzeichenchecker] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2024-12-21T12:53:07.071+01:00  INFO 264 --- [KFZ-Kennzeichenchecker] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 7000 (http) with context path '/'
+2024-12-21T12:53:07.097+01:00  INFO 264 --- [KFZ-Kennzeichenchecker] [main] e.d.s.k.KfzKennzeichencheckerApplication : Started KfzKennzeichencheckerApplication in 7.923 seconds (process running for 8.959)
+2024-12-21T12:53:15.323+01:00  INFO 264 --- [KFZ-Kennzeichenchecker] [http-nio-7000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-21T12:53:15.325+01:00  INFO 264 --- [KFZ-Kennzeichenchecker] [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-12-21T12:53:15.342+01:00  INFO 264 --- [KFZ-Kennzeichenchecker] [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 15 ms
+2024-12-21T12:53:15.476+01:00  INFO 264 --- [KFZ-Kennzeichenchecker] [http-nio-7000-exec-1] d.s.k.r.UnterscheidungszeichenRestClient : Pfad für REST-Request: v1/suche/HH
+2024-12-21T13:01:12.380+01:00  INFO 13880 --- [KFZ-Kennzeichenchecker] [main] e.d.s.k.KfzKennzeichencheckerApplication : Starting KfzKennzeichencheckerApplication using Java 23.0.1 with PID 13880 (E:\AlleMeineGitRepos\GitHub3_Maven_SpringBoot_KfzKennzeichenChecker\target\classes started by sde in E:\AlleMeineGitRepos\GitHub3_Maven_SpringBoot_KfzKennzeichenChecker)
+2024-12-21T13:01:12.425+01:00  INFO 13880 --- [KFZ-Kennzeichenchecker] [main] e.d.s.k.KfzKennzeichencheckerApplication : No active profile set, falling back to 1 default profile: "default"
+2024-12-21T13:01:14.771+01:00  INFO 13880 --- [KFZ-Kennzeichenchecker] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 7000 (http)
+2024-12-21T13:01:14.811+01:00  INFO 13880 --- [KFZ-Kennzeichenchecker] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-21T13:01:14.813+01:00  INFO 13880 --- [KFZ-Kennzeichenchecker] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
+2024-12-21T13:01:14.965+01:00  INFO 13880 --- [KFZ-Kennzeichenchecker] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-21T13:01:14.967+01:00  INFO 13880 --- [KFZ-Kennzeichenchecker] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2399 ms
+2024-12-21T13:01:15.878+01:00  INFO 13880 --- [KFZ-Kennzeichenchecker] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-12-21T13:01:15.928+01:00  INFO 13880 --- [KFZ-Kennzeichenchecker] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2024-12-21T13:01:16.535+01:00  INFO 13880 --- [KFZ-Kennzeichenchecker] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 7000 (http) with context path '/'
+2024-12-21T13:01:16.558+01:00  INFO 13880 --- [KFZ-Kennzeichenchecker] [main] e.d.s.k.KfzKennzeichencheckerApplication : Started KfzKennzeichencheckerApplication in 5.354 seconds (process running for 6.178)
+2024-12-21T13:01:27.568+01:00  INFO 13880 --- [KFZ-Kennzeichenchecker] [http-nio-7000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-21T13:01:27.570+01:00  INFO 13880 --- [KFZ-Kennzeichenchecker] [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-12-21T13:01:27.580+01:00  INFO 13880 --- [KFZ-Kennzeichenchecker] [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2024-12-21T13:01:31.917+01:00  INFO 13880 --- [KFZ-Kennzeichenchecker] [http-nio-7000-exec-4] d.s.k.r.UnterscheidungszeichenRestClient : Pfad für REST-Request: v1/suche/AX
+2024-12-21T13:01:32.324+01:00 ERROR 13880 --- [KFZ-Kennzeichenchecker] [http-nio-7000-exec-4] d.s.k.r.UnterscheidungszeichenRestClient : Exception bei REST-Abfrage: 404 Not Found: "{"erfolgreich":false,"fehlermeldung":"Kein Unterscheidungszeichen für Abfrage-String \"AX\" gefunden.","unterscheidungszeichen":{"kuerzel":"","bedeutung":"","kategorie":""}}"
+2024-12-21T13:01:32.326+01:00  WARN 13880 --- [KFZ-Kennzeichenchecker] [http-nio-7000-exec-4] d.e.d.s.k.logik.KfzKennzeichenChecker    : REST-Service für Unterscheidungszeichenabfrage nicht verfügbar, überspringe Test.
+2024-12-21T13:02:07.482+01:00  INFO 13880 --- [KFZ-Kennzeichenchecker] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2024-12-21T13:02:07.510+01:00  INFO 13880 --- [KFZ-Kennzeichenchecker] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2024-12-21T13:02:30.354+01:00  INFO 12688 --- [KFZ-Kennzeichenchecker] [main] e.d.s.k.KfzKennzeichencheckerApplication : Starting KfzKennzeichencheckerApplication using Java 23 with PID 12688 (E:\AlleMeineGitRepos\GitHub3_Maven_SpringBoot_KfzKennzeichenChecker\target\classes started by sde in E:\AlleMeineGitRepos\GitHub3_Maven_SpringBoot_KfzKennzeichenChecker)
+2024-12-21T13:02:30.374+01:00  INFO 12688 --- [KFZ-Kennzeichenchecker] [main] e.d.s.k.KfzKennzeichencheckerApplication : No active profile set, falling back to 1 default profile: "default"
+2024-12-21T13:02:34.583+01:00  INFO 12688 --- [KFZ-Kennzeichenchecker] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 7000 (http)
+2024-12-21T13:02:34.634+01:00  INFO 12688 --- [KFZ-Kennzeichenchecker] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-21T13:02:34.635+01:00  INFO 12688 --- [KFZ-Kennzeichenchecker] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
+2024-12-21T13:02:34.820+01:00  INFO 12688 --- [KFZ-Kennzeichenchecker] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-21T13:02:34.822+01:00  INFO 12688 --- [KFZ-Kennzeichenchecker] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4184 ms
+2024-12-21T13:02:36.251+01:00  INFO 12688 --- [KFZ-Kennzeichenchecker] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-12-21T13:02:36.322+01:00  INFO 12688 --- [KFZ-Kennzeichenchecker] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2024-12-21T13:02:37.483+01:00  INFO 12688 --- [KFZ-Kennzeichenchecker] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 7000 (http) with context path '/'
+2024-12-21T13:02:37.528+01:00  INFO 12688 --- [KFZ-Kennzeichenchecker] [main] e.d.s.k.KfzKennzeichencheckerApplication : Started KfzKennzeichencheckerApplication in 9.407 seconds (process running for 11.155)
+2024-12-21T13:02:53.227+01:00  INFO 12688 --- [KFZ-Kennzeichenchecker] [http-nio-7000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-21T13:02:53.228+01:00  INFO 12688 --- [KFZ-Kennzeichenchecker] [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-12-21T13:02:53.231+01:00  INFO 12688 --- [KFZ-Kennzeichenchecker] [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-12-21T13:02:53.353+01:00  INFO 12688 --- [KFZ-Kennzeichenchecker] [http-nio-7000-exec-1] d.s.k.r.UnterscheidungszeichenRestClient : Pfad für REST-Request: v1/suche/AX
+2024-12-21T13:02:53.771+01:00 ERROR 12688 --- [KFZ-Kennzeichenchecker] [http-nio-7000-exec-1] d.s.k.r.UnterscheidungszeichenRestClient : Exception bei REST-Abfrage: 404 Not Found: "{"erfolgreich":false,"fehlermeldung":"Kein Unterscheidungszeichen für Abfrage-String \"AX\" gefunden.","unterscheidungszeichen":{"kuerzel":"","bedeutung":"","kategorie":""}}"
+2024-12-21T13:02:53.775+01:00  WARN 12688 --- [KFZ-Kennzeichenchecker] [http-nio-7000-exec-1] d.e.d.s.k.logik.KfzKennzeichenChecker    : REST-Service für Unterscheidungszeichenabfrage nicht verfügbar, überspringe Test.
+2024-12-21T13:03:34.409+01:00  INFO 12688 --- [KFZ-Kennzeichenchecker] [http-nio-7000-exec-4] d.s.k.r.UnterscheidungszeichenRestClient : Pfad für REST-Request: v1/suche/AX
+2024-12-21T13:03:34.770+01:00 ERROR 12688 --- [KFZ-Kennzeichenchecker] [http-nio-7000-exec-4] d.s.k.r.UnterscheidungszeichenRestClient : Exception bei REST-Abfrage: 404 Not Found: "{"erfolgreich":false,"fehlermeldung":"Kein Unterscheidungszeichen für Abfrage-String \"AX\" gefunden.","unterscheidungszeichen":{"kuerzel":"","bedeutung":"","kategorie":""}}"
+2024-12-21T13:03:34.771+01:00  WARN 12688 --- [KFZ-Kennzeichenchecker] [http-nio-7000-exec-4] d.e.d.s.k.logik.KfzKennzeichenChecker    : REST-Service für Unterscheidungszeichenabfrage nicht verfügbar, überspringe Test.

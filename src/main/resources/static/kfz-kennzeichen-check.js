@@ -29,19 +29,32 @@ document.addEventListener( "DOMContentLoaded", function() {
 
     // insgesamt mehr als 8 Zeichen
     addLink( ulUngueltig, "BAD XY 1234" );
+
+    // nicht existierendes Unterscheidungszeichen
+    addLink( ulUngueltig, "AX AB 42" );
 });
 
 
+/**
+ * Diese Funktion fügt unter einem übergebenen ul-Element einen Link zu einer
+ * KFZ-Kennzeichen-Überprüfung hinzu.
+ *
+ * @param {*} ulElement ul-Element, unter dem der Link eingefügt werden soll
+ *                      (entweder ul-Element für gültige oder ungültige Kennzeichen)
+ *
+ * @param {*} kfzKennzeichen KFZ-Kennzeichen, für dessen Überprüfung ein Link
+ *                           hinzugefügt werden soll
+ */
 function addLink( ulElement, kfzKennzeichen ) {
 
     const liElement = document.createElement( "li" );
-    
+
     const aElement = document.createElement( "a" );
     aElement.textContent = kfzKennzeichen;
     aElement.href        = "/kfzkennzeichen/v1/check?kennzeichen=" + encodeURIComponent(kfzKennzeichen);
     aElement.target      = "_blank";
-    
+
     liElement.appendChild(aElement);
-    
+
     ulElement.appendChild(liElement);
 }
