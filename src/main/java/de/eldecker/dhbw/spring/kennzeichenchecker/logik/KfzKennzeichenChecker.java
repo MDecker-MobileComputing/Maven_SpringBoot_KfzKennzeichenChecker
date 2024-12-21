@@ -1,7 +1,6 @@
 package de.eldecker.dhbw.spring.kennzeichenchecker.logik;
 
 
-import java.util.Optional;
 import java.util.regex.Pattern;
 
 import org.slf4j.Logger;
@@ -122,23 +121,15 @@ public class KfzKennzeichenChecker {
                                       "KFZ-Kennzeichen hat mehr als 8 Zeichen/Ziffern" );                                    
         }
         
-        // die letzte Überprüfung braucht einen REST-Call, ist also die teuerste und
+        // Die letzte Überprüfung braucht einen REST-Call, ist also die teuerste und
         // wird deshalb erst ganz am Schluss gemacht
-        Optional<RestErgebnisRecord> restAntwortOptional = _restClient.holeUnterscheidungszeichen( unterscheidungszeichen );
-        if ( restAntwortOptional.isEmpty() ) {
-        	
-        	LOG.warn( "REST-Service für Unterscheidungszeichenabfrage nicht verfügbar, überspringe Test." );
-        	
-        } else {
-        	
-        	RestErgebnisRecord restAntwort = restAntwortOptional.get(); 
-        	if ( restAntwort.erfolgreich() == false ) {
-        		
-        		String fehlermeldungUnterscheidungszeichen = restAntwort.fehlermeldung();
-                return new CheckErgebnis( kfzKennzeichenNormal, 
-                                          false, 
-                                          fehlermeldungUnterscheidungszeichen );    
-        	}
+        RestErgebnisRecord restAntwort = _restClient.holeUnterscheidungszeichen( unterscheidungszeichen );
+        if ( restAntwort.erfolgreich() == false ) {
+
+            return new CheckErgebnis( kfzKennzeichenNormal, 
+                                      false, 
+                                      "Externer Service hat Unterscheidungszeichen nicht bestätigt: " + 
+                                      restAntwort.fehlermeldung() );                                                
         }
         
         // alle Checks bestanden, also KFZ-Kennzeichen okay

@@ -14,6 +14,6 @@ package de.eldecker.dhbw.spring.kennzeichenchecker.model.extern;
  *                               ansonsten ist das Ergebnis enthalten
  */
 public record RestErgebnisRecord( boolean erfolgreich, 
-                                 String fehlermeldung,
-                                 Unterscheidungszeichen unterscheidungszeichen ) {
+                                  String fehlermeldung,
+                                  Unterscheidungszeichen unterscheidungszeichen ) {
 }

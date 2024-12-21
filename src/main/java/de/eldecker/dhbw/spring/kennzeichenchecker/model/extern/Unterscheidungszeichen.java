@@ -12,6 +12,6 @@ package de.eldecker.dhbw.spring.kennzeichenchecker.model.extern;
  * @param kategorie Kategorie des Unterscheidungszeichen, z.B. Bundesland oder "Militär"
  */
 public record Unterscheidungszeichen( String kuerzel, 
-                                     String bedeutung, 
-                                     UZKategorieEnum kategorie) {    
+                                      String bedeutung, 
+                                      UZKategorieEnum kategorie ) {    
 }
