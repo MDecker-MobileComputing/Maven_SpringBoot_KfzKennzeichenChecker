@@ -2,6 +2,8 @@ package de.eldecker.dhbw.spring.kennzeichenchecker.logik;
 
 import java.util.regex.Pattern;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +26,8 @@ import de.eldecker.dhbw.spring.kennzeichenchecker.rest.UnterscheidungszeichenRes
 @Service
 public class KfzKennzeichenChecker {
 
+	private static final Logger LOG = LoggerFactory.getLogger( KfzKennzeichenChecker.class );
+	
     /**
      * Regulärer Ausdruck für Überprüfung von erster Komponente KFZ-Kennzeichen
      * (Unterscheidungszeichen): besteht sie aus ein bis drei Großbuchstaben?
@@ -126,7 +130,7 @@ public class KfzKennzeichenChecker {
 
         // Die letzte Überprüfung braucht einen REST-Call, ist also die teuerste und
         // wird deshalb erst ganz am Schluss gemacht
-        if ( _skipUnterscheidungszeichenCheck == true ) {
+        if ( _skipUnterscheidungszeichenCheck == false ) {
 
             RestErgebnisRecord restAntwort = _restClient.holeUnterscheidungszeichen( unterscheidungszeichen );
             if ( restAntwort.erfolgreich() == false ) {
@@ -136,6 +140,10 @@ public class KfzKennzeichenChecker {
                                           "Externer Service hat Unterscheidungszeichen nicht bestätigt: " +
                                           restAntwort.fehlermeldung() );
             }
+            
+        } else {
+        	
+        	LOG.info( "Abfrage bei externem Unterscheidungszeichen ist abgeschaltet" );
         }
 
         // alle Checks bestanden, also KFZ-Kennzeichen okay
