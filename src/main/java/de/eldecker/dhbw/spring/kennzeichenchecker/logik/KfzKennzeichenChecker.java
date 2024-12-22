@@ -1,8 +1,8 @@
 package de.eldecker.dhbw.spring.kennzeichenchecker.logik;
 
-
 import java.util.regex.Pattern;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import de.eldecker.dhbw.spring.kennzeichenchecker.model.CheckErgebnis;
