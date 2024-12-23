@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.ResourceAccessException;
@@ -29,6 +30,7 @@ import de.eldecker.dhbw.spring.kennzeichenchecker.model.extern.Unterscheidungsze
  * <a href="https://github.com/MDecker-MobileComputing/Maven_SpringBoot_KfzUnterscheidungszeichen">siehe hier</a>
  */
 @Service
+@EnableCaching
 @CacheConfig( cacheNames = "unterscheidungszeichenCache" )
 public class UnterscheidungszeichenRestClient {
     
