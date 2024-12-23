@@ -26,7 +26,7 @@ function checkKennzeichen() {
 
             if ( !response.ok ) {
 
-                throw new Error( "Netzwerkfehler: " + response.statusText);
+                throw new Error( "Netzwerkfehler: " + response.statusText );
             }
 
             return response.json();
@@ -36,11 +36,11 @@ function checkKennzeichen() {
             const { kfzKennzeichen, istOkay, fehlermeldung } = data;
             if ( istOkay ) {
 
-                alert( "Kennzeichen " + kfzKennzeichen + " ist gültig." );
+            alert( "Kennzeichen \"" + kfzKennzeichen + "\" ist gültig." );
 
             } else {
 
-                alert( "Kennzeichen " + kfzKennzeichen + " ist ungültig: " + fehlermeldung );
+                alert( "Kennzeichen \"" + kfzKennzeichen + "\" ist ungültig: " + fehlermeldung );
             }
         })
         .catch( error => {

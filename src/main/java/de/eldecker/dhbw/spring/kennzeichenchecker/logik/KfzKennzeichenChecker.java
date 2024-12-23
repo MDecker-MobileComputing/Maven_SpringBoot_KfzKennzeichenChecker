@@ -87,7 +87,7 @@ public class KfzKennzeichenChecker {
 
             return new CheckErgebnis( kfzKennzeichenNormal,
                                       false,
-                                      "KFZ-Kennzeichen besteht nicht aus genau drei Komponenten" );
+                                      "KFZ-Kennzeichen besteht nicht aus genau drei Komponenten." );
         }
 
         final String unterscheidungszeichen     = komponentenArray[ 0 ];
@@ -100,7 +100,7 @@ public class KfzKennzeichenChecker {
 
             return new CheckErgebnis( kfzKennzeichenNormal,
                                       false,
-                                      "Die erste Komponente besteht nicht aus ein bis drei Buchstaben" );
+                                      "Die erste Komponente besteht nicht aus ein bis drei Buchstaben." );
         }
 
 
@@ -109,7 +109,7 @@ public class KfzKennzeichenChecker {
 
             return new CheckErgebnis( kfzKennzeichenNormal,
                                       false,
-                                      "Die zweite Komponente KFZ-Kennzeichen besteht nicht aus ein oder zwei Buchstaben" );
+                                      "Die zweite Komponente KFZ-Kennzeichen besteht nicht aus ein oder zwei Buchstaben." );
         }
 
         // Check Komponente 3 (Zahl von Erkennungsnummer)
@@ -117,7 +117,7 @@ public class KfzKennzeichenChecker {
 
             return new CheckErgebnis( kfzKennzeichenNormal,
                                       false,
-                                      "Die dritte Komponente KFZ-Kennzeichen besteht nicht aus ein bis vier Ziffern" );
+                                      "Die dritte Komponente KFZ-Kennzeichen besteht nicht aus ein bis vier Ziffern." );
         }
 
         int summeZeichen = unterscheidungszeichen.length() + erkennungsnummerBuchstaben.length() + erkennungsnummerZahlen.length();
@@ -125,7 +125,7 @@ public class KfzKennzeichenChecker {
 
             return new CheckErgebnis( kfzKennzeichenNormal,
                                       false,
-                                      "KFZ-Kennzeichen hat mehr als 8 Zeichen/Ziffern" );
+                                      "KFZ-Kennzeichen hat mehr als 8 Zeichen/Ziffern." );
         }
 
         // Die letzte Überprüfung braucht einen REST-Call, ist also die teuerste und
@@ -143,7 +143,7 @@ public class KfzKennzeichenChecker {
             
         } else {
         	
-        	LOG.info( "Abfrage bei externem Unterscheidungszeichen ist abgeschaltet" );
+        	LOG.info( "Abfrage bei externem Unterscheidungszeichen ist abgeschaltet." );
         }
 
         // alle Checks bestanden, also KFZ-Kennzeichen okay
