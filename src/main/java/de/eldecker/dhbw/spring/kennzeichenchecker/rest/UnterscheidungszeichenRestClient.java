@@ -7,9 +7,12 @@ import org.slf4j.LoggerFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestClient;
@@ -31,6 +34,7 @@ import de.eldecker.dhbw.spring.kennzeichenchecker.model.extern.Unterscheidungsze
  */
 @Service
 @EnableCaching
+@EnableScheduling 
 @CacheConfig( cacheNames = "unterscheidungszeichenCache" )
 public class UnterscheidungszeichenRestClient {
     
@@ -64,7 +68,7 @@ public class UnterscheidungszeichenRestClient {
      *                               
      * @return Antwort von externem REST-Service, wird nicht {@code null} sein
      */
-    @Cacheable( value = "kfzHalterCache" )
+    @Cacheable( value = "unterscheidungszeichenCache" )
     public RestErgebnisRecord holeUnterscheidungszeichen( String unterscheidungszeichen ) {
         
         ResponseEntity<RestErgebnisRecord> ergebnisEntity = null;
@@ -122,5 +126,18 @@ public class UnterscheidungszeichenRestClient {
                     UNTERSCHEIDUNGSZEICHEN_EMPTY );            
         }
     }
+    
+    
+    /**
+     * Diese Methode ist mit {@code Scheduled} annotiert, so dass sie perodisch aufgerufen wird. 
+     * Bei jedem Aufruf wird der Cache gelöscht. Die Zeitwerte für die Annotation {@code Scheduled} 
+     * sind in Millisekunden.
+     */
+    @Scheduled( fixedRate = 120_000, initialDelay = 120_000 )
+    @CacheEvict( value = "unterscheidungszeichenCache", allEntries = true )
+    public void cacheLoeschen() {
+
+        LOG.info( "Der Unterscheidungszeichen-Cache wurde geleert." );
+    }    
     
 }
