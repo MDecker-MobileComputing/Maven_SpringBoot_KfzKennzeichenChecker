@@ -87,11 +87,8 @@ public class UnterscheidungszeichenRestClient {
             
             return new RestErgebnisRecord( true, "", uz ); 
         }
+        
         catch ( RestClientResponseException ex ) {
-            
-            // "By default, when RestClient encounters a 4xx or 5xx status code in the HTTP response, 
-            // it raises an exception that’s a subclass of RestClientException."
-            // https://www.baeldung.com/spring-boot-restclient#error         
             
             final int httpStatusCode = ex.getStatusCode().value();
             switch ( httpStatusCode ) {
@@ -109,13 +106,14 @@ public class UnterscheidungszeichenRestClient {
                                         "Unterscheidungszeichen \"" + unterscheidungszeichen + "\" wurde nicht gefunden", 
                                         UNTERSCHEIDUNGSZEICHEN_EMPTY );                    
                 default:
-                    LOG.error( "Externer Service hat unerwarteten Fehlercode zurückgeliefert: " + httpStatusCode ); 
+                    LOG.error( "Externer Service hat unerwarteten Fehler-Code zurückgeliefert: " + httpStatusCode ); 
                     return new RestErgebnisRecord( 
                                         false, 
                                         "Unerwarteter HTTP-Status-Code " + httpStatusCode + " von Service erhalten.", 
                                         UNTERSCHEIDUNGSZEICHEN_EMPTY );                    
             }
         }
+        
         catch ( ResourceAccessException ex ) {
 
             LOG.error( "Externer Service für Unterscheidungszeichen-Abfrage war nicht erreichbar." );
