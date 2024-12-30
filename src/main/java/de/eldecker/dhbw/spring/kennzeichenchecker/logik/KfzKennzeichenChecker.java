@@ -120,7 +120,9 @@ public class KfzKennzeichenChecker {
                                       "Die dritte Komponente KFZ-Kennzeichen besteht nicht aus ein bis vier Ziffern." );
         }
 
-        int summeZeichen = unterscheidungszeichen.length() + erkennungsnummerBuchstaben.length() + erkennungsnummerZahlen.length();
+        final int summeZeichen = unterscheidungszeichen.length()     + 
+                                 erkennungsnummerBuchstaben.length() + 
+                                 erkennungsnummerZahlen.length();
         if ( summeZeichen > 8 ) {
 
             return new CheckErgebnis( kfzKennzeichenNormal,
