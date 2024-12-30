@@ -116,7 +116,7 @@ public class UnterscheidungszeichenRestClient {
                                         UNTERSCHEIDUNGSZEICHEN_EMPTY );                    
             }
         }
-        catch ( ResourceAccessException  ex ) {
+        catch ( ResourceAccessException ex ) {
 
             LOG.error( "Externer Service für Unterscheidungszeichen-Abfrage war nicht erreichbar." );
             
