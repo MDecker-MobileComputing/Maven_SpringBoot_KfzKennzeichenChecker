@@ -93,7 +93,7 @@ public class UnterscheidungszeichenRestClient {
             // it raises an exception that’s a subclass of RestClientException."
             // https://www.baeldung.com/spring-boot-restclient#error         
             
-            int httpStatusCode = ex.getStatusCode().value();
+            final int httpStatusCode = ex.getStatusCode().value();
             switch ( httpStatusCode ) {
 
                 case 400:
