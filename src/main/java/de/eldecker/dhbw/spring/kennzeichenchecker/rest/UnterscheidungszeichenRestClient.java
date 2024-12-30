@@ -83,7 +83,7 @@ public class UnterscheidungszeichenRestClient {
                                         .retrieve()
                                         .toEntity( RestErgebnisRecord.class );        
                                                 
-            Unterscheidungszeichen uz = ergebnisEntity.getBody().unterscheidungszeichen();
+            final Unterscheidungszeichen uz = ergebnisEntity.getBody().unterscheidungszeichen();
             
             return new RestErgebnisRecord( true, "", uz ); 
         }
