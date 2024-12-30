@@ -44,7 +44,7 @@ public class KennzeichenCheckRestController {
     @GetMapping( "/check" )
     public ResponseEntity<CheckErgebnis> getAnzahl( @RequestParam String kennzeichen ) {
 
-        CheckErgebnis erg = _kennzeichenChecker.check( kennzeichen );
+        final CheckErgebnis erg = _kennzeichenChecker.check( kennzeichen );
         
         return ResponseEntity.status( OK ).body( erg );
     }    
