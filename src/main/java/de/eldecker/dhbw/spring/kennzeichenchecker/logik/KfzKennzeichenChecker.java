@@ -23,29 +23,20 @@ import de.eldecker.dhbw.spring.kennzeichenchecker.rest.UnterscheidungszeichenRes
  * </ul>
  * Insgesamt dürfen es aber nur bis zu 8 Zeichen sein.
  */
+
 @Service
 public class KfzKennzeichenChecker {
 
 	private static final Logger LOG = LoggerFactory.getLogger( KfzKennzeichenChecker.class );
+
 	
-    /**
-     * Regulärer Ausdruck für Überprüfung von erster Komponente KFZ-Kennzeichen
-     * (Unterscheidungszeichen): besteht sie aus ein bis drei Großbuchstaben?
-     */
     private static final Pattern REGEXP_1 = Pattern.compile( "^[A-Z]{1,3}$" );
 
-    /**
-     * Regulärer Ausdruck für Überprüfung von zweiter Komponente KFZ-Kennzeichen
-     * (Buchstaben von Erkennungsnummer): besteht sie aus ein oder zwei Großbuchstaben.
-     */
     private static final Pattern REGEXP_2 = Pattern.compile( "^[A-Z]{1,2}$" );
 
-    /**
-     * Regulärer Ausdruck für Überprüfung dritte Komponente KFZ-Kennzeichen:
-     * (Zahlen von Erkennungsnummer): besteht sie aus einem bis vier Ziffern.
-     */
     private static final Pattern REGEXP_3 = Pattern.compile( "^[0-9][0-9]{0,3}$" );
 
+    
     /**
      * REST-Client für Abfrage Unterscheidungszeichen bei anderem Microservice.
      */
@@ -76,11 +67,12 @@ public class KfzKennzeichenChecker {
      * @return Ergebnis der Prüfung, enthält auch normalisierte Form
      *         von {@code kfzKennzeichen} und ggf. die Fehlermeldung.
      */
+    
     public CheckErgebnis check( String kfzKennzeichen ) {
 
         String kfzKennzeichenNormal = kfzKennzeichen.trim().toUpperCase();
 
-        String[] komponentenArray = kfzKennzeichenNormal.split( " " );
+        final String[] komponentenArray = kfzKennzeichenNormal.split( " " );
         kfzKennzeichenNormal = joinKomponenten( komponentenArray );
 
         if ( komponentenArray.length != 3 ) {
@@ -95,24 +87,19 @@ public class KfzKennzeichenChecker {
         final String erkennungsnummerZahlen     = komponentenArray[ 2 ];
 
 
-        // Check Komponente 1 (Unterscheidungszeichen)
+
         if ( REGEXP_1.matcher( unterscheidungszeichen ).matches() == false ) {
 
             return new CheckErgebnis( kfzKennzeichenNormal,
                                       false,
                                       "Die erste Komponente besteht nicht aus ein bis drei Buchstaben." );
         }
-
-
-        // Check Komponente 2 (Buchstaben von Erkennungsnummer)
         if ( REGEXP_2.matcher( erkennungsnummerBuchstaben ).matches() == false ) {
 
             return new CheckErgebnis( kfzKennzeichenNormal,
                                       false,
                                       "Die zweite Komponente KFZ-Kennzeichen besteht nicht aus ein oder zwei Buchstaben." );
         }
-
-        // Check Komponente 3 (Zahl von Erkennungsnummer)
         if ( REGEXP_3.matcher(erkennungsnummerZahlen).matches() == false ) {
 
             return new CheckErgebnis( kfzKennzeichenNormal,
@@ -123,6 +110,7 @@ public class KfzKennzeichenChecker {
         final int summeZeichen = unterscheidungszeichen.length()     + 
                                  erkennungsnummerBuchstaben.length() + 
                                  erkennungsnummerZahlen.length();
+        
         if ( summeZeichen > 8 ) {
 
             return new CheckErgebnis( kfzKennzeichenNormal,
@@ -134,7 +122,7 @@ public class KfzKennzeichenChecker {
         // wird deshalb erst ganz am Schluss gemacht
         if ( _skipUnterscheidungszeichenCheck == false ) {
 
-            RestErgebnisRecord restAntwort = _restClient.holeUnterscheidungszeichen( unterscheidungszeichen );
+            final RestErgebnisRecord restAntwort = _restClient.holeUnterscheidungszeichen( unterscheidungszeichen );
             if ( restAntwort.erfolgreich() == false ) {
 
                 return new CheckErgebnis( kfzKennzeichenNormal,
