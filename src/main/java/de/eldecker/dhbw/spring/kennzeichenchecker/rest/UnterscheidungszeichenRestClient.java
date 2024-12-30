@@ -86,8 +86,7 @@ public class UnterscheidungszeichenRestClient {
             final Unterscheidungszeichen uz = ergebnisEntity.getBody().unterscheidungszeichen();
             
             return new RestErgebnisRecord( true, "", uz ); 
-        }
-        
+        }        
         catch ( RestClientResponseException ex ) {
             
             final int httpStatusCode = ex.getStatusCode().value();
@@ -112,8 +111,7 @@ public class UnterscheidungszeichenRestClient {
                                         "Unerwarteter HTTP-Status-Code " + httpStatusCode + " von Service erhalten.", 
                                         UNTERSCHEIDUNGSZEICHEN_EMPTY );                    
             }
-        }
-        
+        }        
         catch ( ResourceAccessException ex ) {
 
             LOG.error( "Externer Service für Unterscheidungszeichen-Abfrage war nicht erreichbar." );
