@@ -155,7 +155,7 @@ public class KfzKennzeichenChecker {
 
         for ( String komponente : komponentenArray ) {
 
-            ergebnisBuilder.append( komponente ).append( " ");
+            ergebnisBuilder.append( komponente ).append( " " );
         }
 
         return ergebnisBuilder.toString();
