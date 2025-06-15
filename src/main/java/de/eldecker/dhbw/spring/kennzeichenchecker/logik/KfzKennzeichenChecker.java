@@ -66,7 +66,6 @@ public class KfzKennzeichenChecker {
      * @return Ergebnis der Prüfung, enthält auch normalisierte Form
      *         von {@code kfzKennzeichen} und ggf. die Fehlermeldung.
      */
-
     public CheckErgebnis check( String kfzKennzeichen ) {
 
         String kfzKennzeichenNormal = kfzKennzeichen.trim().toUpperCase();
@@ -84,7 +83,6 @@ public class KfzKennzeichenChecker {
         final String unterscheidungszeichen     = komponentenArray[ 0 ];
         final String erkennungsnummerBuchstaben = komponentenArray[ 1 ];
         final String erkennungsnummerZahlen     = komponentenArray[ 2 ];
-
 
 
         if ( REGEXP_1.matcher( unterscheidungszeichen ).matches() == false ) {
