@@ -23,20 +23,19 @@ import de.eldecker.dhbw.spring.kennzeichenchecker.rest.UnterscheidungszeichenRes
  * </ul>
  * Insgesamt dürfen es aber nur bis zu 8 Zeichen sein.
  */
-
 @Service
 public class KfzKennzeichenChecker {
 
-	private static final Logger LOG = LoggerFactory.getLogger( KfzKennzeichenChecker.class );
+    private static final Logger LOG = LoggerFactory.getLogger( KfzKennzeichenChecker.class );
 
-	
+
     private static final Pattern REGEXP_1 = Pattern.compile( "^[A-Z]{1,3}$" );
 
     private static final Pattern REGEXP_2 = Pattern.compile( "^[A-Z]{1,2}$" );
 
     private static final Pattern REGEXP_3 = Pattern.compile( "^[0-9][0-9]{0,3}$" );
 
-    
+
     /**
      * REST-Client für Abfrage Unterscheidungszeichen bei anderem Microservice.
      */
@@ -55,7 +54,7 @@ public class KfzKennzeichenChecker {
      */
     public KfzKennzeichenChecker( UnterscheidungszeichenRestClient restClient ) {
 
-    	_restClient = restClient;
+        _restClient = restClient;
     }
 
 
@@ -67,7 +66,7 @@ public class KfzKennzeichenChecker {
      * @return Ergebnis der Prüfung, enthält auch normalisierte Form
      *         von {@code kfzKennzeichen} und ggf. die Fehlermeldung.
      */
-    
+
     public CheckErgebnis check( String kfzKennzeichen ) {
 
         String kfzKennzeichenNormal = kfzKennzeichen.trim().toUpperCase();
@@ -107,10 +106,10 @@ public class KfzKennzeichenChecker {
                                       "Die dritte Komponente KFZ-Kennzeichen besteht nicht aus ein bis vier Ziffern." );
         }
 
-        final int summeZeichen = unterscheidungszeichen.length()     + 
-                                 erkennungsnummerBuchstaben.length() + 
+        final int summeZeichen = unterscheidungszeichen.length()     +
+                                 erkennungsnummerBuchstaben.length() +
                                  erkennungsnummerZahlen.length();
-        
+
         if ( summeZeichen > 8 ) {
 
             return new CheckErgebnis( kfzKennzeichenNormal,
@@ -130,10 +129,10 @@ public class KfzKennzeichenChecker {
                                           "Externer Service hat Unterscheidungszeichen nicht bestätigt: " +
                                           restAntwort.fehlermeldung() );
             }
-            
+
         } else {
-        	
-        	LOG.info( "Abfrage bei externem Unterscheidungszeichen ist abgeschaltet." );
+
+            LOG.info( "Abfrage bei externem Unterscheidungszeichen ist abgeschaltet." );
         }
 
         // alle Checks bestanden, also KFZ-Kennzeichen okay
